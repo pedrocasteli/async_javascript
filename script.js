@@ -101,7 +101,15 @@ const renderCOuntry = (dados, className = "") => {
 const getCountryData = function (country) {
     fetch(`https://restcountries.com/v3.1/name/${country}`)
         .then((responseFulfilled) => responseFulfilled.json())
-        .then((data) => renderCOuntry(data[0]));
+        .then((data) => {
+            console.log(data);
+            renderCOuntry(data[0]);
+            const neighbour = data[0].borders[0];
+            if (!neighbour) return;
+            return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`);
+        })
+        .then((response) => response.json())
+        .then((dado) => renderCOuntry(dado[0], "neighbour"));
 };
 
 getCountryData("brazil");
