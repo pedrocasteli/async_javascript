@@ -12,12 +12,12 @@ html {
 body {
     font-family: system-ui;
     color: #555;
-    background-color: thistle;
+    background-color: #f7f7f7;
     min-height: 100vh;
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 .container {
@@ -39,7 +39,7 @@ body {
     background-color: #fff;
     box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
     font-size: 1.8rem;
-    width: 50rem;
+    width: 40rem;
     border-radius: 0.7rem;
     margin: 0 3rem;
     /* overflow: hidden; */
@@ -64,8 +64,8 @@ body {
 }
 
 .country__img {
-    width: 50rem;
-    height: 50rem;
+    width: 40rem;
+    height: 27rem;
     object-fit: cover;
     background-color: #eee;
     border-top-left-radius: 0.7rem;
