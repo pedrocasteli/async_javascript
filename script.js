@@ -105,7 +105,13 @@ const renderError = function (msg) {
 
 const getCountryData = function (country) {
     fetch(`https://restcountries.com/v3.1/name/${country}`)
-        .then((responseFulfilled) => responseFulfilled.json())
+        .then((responseFulfilled) => {
+            if (!responseFulfilled.ok)
+                throw new Error(
+                    `Country not found! (${responseFulfilled.status})`
+                );
+            return responseFulfilled.json();
+        })
         .then((data) => {
             console.log(data);
             renderCOuntry(data[0]);
